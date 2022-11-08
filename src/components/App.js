@@ -1,9 +1,14 @@
+import Header from './Header';
+
 import styles from './App.module.css';
 
 const App = () => {
   return (
     <div className={styles.App}>
-      <header className="App-header"></header>
+      <Header>
+        Trello Clone <br />
+        (made with React and Redux)
+      </Header>
     </div>
   );
 };
