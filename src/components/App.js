@@ -1,11 +1,11 @@
-import './App.css';
+import styles from './App.module.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <header className="App-header"></header>
     </div>
   );
-}
+};
 
 export default App;
