@@ -1,4 +1,5 @@
 import Header from './Header';
+import Board from './Board';
 
 import styles from './App.module.css';
 
@@ -9,6 +10,7 @@ const App = () => {
         Trello Clone <br />
         (made with React and Redux)
       </Header>
+      <Board />
     </div>
   );
 };
