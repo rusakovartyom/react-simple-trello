@@ -1,5 +1,4 @@
 .Board {
-  height: 92%;
   display: flex;
   overflow-x: auto;
 }
