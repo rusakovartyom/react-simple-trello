@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialListsState = {};
 
 const listsSlice = createSlice({
-  name: 'lists',
+  name: 'listsById',
   initialState: initialListsState,
   reducers: {
     addList: (state, action) => {
