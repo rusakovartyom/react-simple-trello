@@ -33,8 +33,8 @@ const persistedState = loadState();
 const store = configureStore({
   reducer: {
     board: boardSlice.reducer,
-    lists: listsSlice.reducer,
-    cards: cardsSlice.reducer,
+    listsById: listsSlice.reducer,
+    cardsById: cardsSlice.reducer,
   },
   preloadedState: persistedState,
 });
