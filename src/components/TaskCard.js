@@ -9,6 +9,22 @@ const TaskCard = (props) => {
   const card = useSelector((state) => state.cardsById[props.cardId]);
   const dispatch = useDispatch();
 
-  return <Card>{card.text}</Card>;
+  const startHover = () => {
+    setIsHovered(true);
+    console.log('Hovering.');
+  };
+  const endHover = () => {
+    setIsHovered(false);
+    console.log('Not hovering.');
+  };
+
+  const startEditing = () => {
+    setIsHovered(false);
+    setIsEditing(true);
+  };
+  const endEditing = () => {
+    setIsHovered(true);
+    setIsEditing(false);
+  };
 };
 export default TaskCard;
