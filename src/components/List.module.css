@@ -13,3 +13,23 @@
   padding: 10px;
   overflow-wrap: break-word;
 }
+
+.ToggleAddCard {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  color: #6b808c;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.ToggleAddCard:hover {
+  background-color: rgba(9, 45, 66, 0.13);
+  color: #17394d;
+  text-decoration: underline;
+}
+
+.ToggleAddCard ion-icon {
+  margin-right: 2px;
+}
