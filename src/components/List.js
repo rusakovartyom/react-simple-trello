@@ -1,11 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Card from './Card';
+import TaskCard from './TaskCard';
+import CardEditor from './CardEditor';
+import shortid from 'shortid';
+import { listsActions } from '../store/lists-slice';
+import { cardsActions } from '../store/cards-slice';
 
 import styles from './List.module.css';
 
 const List = (props) => {
+  const [addingCard, setAddingCard] = useState(false);
+  const dispatch = useDispatch();
   const list = useSelector((state) => state.listsById[props.listId]);
+
+  const toggleAddingCard = () => {
+    setAddingCard(!addingCard);
+  };
+
+  const handleAddCard = async (cardText) => {
+    const { listId } = props;
+
+    toggleAddingCard();
+
+    const cardId = shortid.generate();
+
+    dispatch(listsActions.addCard({ cardId, listId }));
+    dispatch(cardsActions.addCard({ cardId, listId, cardText }));
+  };
 
   return (
     <div className={styles.List}>
@@ -13,8 +35,22 @@ const List = (props) => {
 
       {list.cards &&
         list.cards.map((cardId, index) => (
-          <Card key={cardId} cardId={cardId} index={index} listId={list._id} />
+          <TaskCard
+            key={cardId}
+            cardId={cardId}
+            index={index}
+            listId={list._id}
+          />
         ))}
+
+      {addingCard ? (
+        <CardEditor onSave={handleAddCard} onCancel={toggleAddingCard} adding />
+      ) : (
+        <button className={styles.ToggleAddCard} onClick={toggleAddingCard}>
+          <ion-icon name="add" />
+          Add a card
+        </button>
+      )}
     </div>
   );
 };
