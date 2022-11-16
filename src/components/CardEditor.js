@@ -7,7 +7,7 @@ import EditButtons from './EditButtons';
 import styles from './CardEditor.module.css';
 
 const CardEditor = (props) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState(props.text || '');
 
   const handleChangeText = (event) => {
     setText(event.target.value);
