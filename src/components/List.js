@@ -42,6 +42,15 @@ const List = (props) => {
             listId={list._id}
           />
         ))}
+
+      {addingCard ? (
+        <CardEditor onSave={handleAddCard} onCancel={toggleAddingCard} adding />
+      ) : (
+        <button className={styles.ToggleAddCard} onClick={toggleAddingCard}>
+          <ion-icon name="add" />
+          Add a card
+        </button>
+      )}
     </div>
   );
 };
