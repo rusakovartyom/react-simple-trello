@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+
+import Card from './Card';
+
+import styles from './CardEditor.module.css';
+
 const CardEditor = (props) => {
   const [text, setText] = useState('');
 
