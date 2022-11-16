@@ -18,8 +18,8 @@ const List = (props) => {
     setAddingCard(!addingCard);
   };
 
-  const handleAddCard = (cardText) => {
-    const listId = list._id;
+  const handleAddCard = async (cardText) => {
+    const { listId } = props;
 
     toggleAddingCard();
 
