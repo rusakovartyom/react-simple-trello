@@ -14,7 +14,6 @@ const CardEditor = (props) => {
   };
 
   const onEnter = (e) => {
-    const { text } = props;
     if (e.keyCode === 13) {
       e.preventDefault();
       props.onSave(text);
