@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { cardsActions } from '../store/cards-slice';
+import { listsActions } from '../store/lists-slice';
 
 import Card from './Card';
 import CardEditor from './CardEditor';
