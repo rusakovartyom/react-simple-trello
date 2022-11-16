@@ -6,6 +6,8 @@ import { listsActions } from '../store/lists-slice';
 import Card from './Card';
 import CardEditor from './CardEditor';
 
+import styles from './TaskCard.module.css';
+
 const TaskCard = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
