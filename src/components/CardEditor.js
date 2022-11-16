@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import Card from './Card';
+import EditButtons from './EditButtons';
 
 import styles from './CardEditor.module.css';
 
@@ -32,7 +33,12 @@ const CardEditor = (props) => {
           onKeyDown={onEnter}
         />
       </Card>
-      <div>Edit Buttons</div>
+      <EditButtons
+        handleSave={() => props.onSave(text)}
+        saveLabel={props.adding ? 'Add card' : 'Save'}
+        handleDelete={props.onDelete}
+        handleCancel={props.onCancel}
+      />
     </div>
   );
 };
