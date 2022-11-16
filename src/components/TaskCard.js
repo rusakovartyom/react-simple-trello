@@ -26,5 +26,18 @@ const TaskCard = (props) => {
     setIsHovered(true);
     setIsEditing(false);
   };
+
+  const handleEditCard = async (text) => {
+    endEditing();
+
+    dispatch(cardsActions.changeCardText({ cardId: card._id, cardText: text }));
+  };
+
+  const handleDeleteCard = async () => {
+    const { listId, card } = props;
+
+    dispatch(cardsActions.deleteCard({ cardId: card._id, listId }));
+    dispatch(listsActions.deleteCard({ cardId: card._id, listId }));
+  };
 };
 export default TaskCard;
