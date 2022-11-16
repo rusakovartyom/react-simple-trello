@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Card from './Card';
+import CardEditor from './CardEditor';
 
 const TaskCard = (props) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -39,5 +40,29 @@ const TaskCard = (props) => {
     dispatch(cardsActions.deleteCard({ cardId: card._id, listId }));
     dispatch(listsActions.deleteCard({ cardId: card._id, listId }));
   };
+
+  if (!isEditing) {
+    return (
+      <Card onMouseEnter={startHover} onMouseLeave={endHover}>
+        {isHovered && (
+          <div className={styles.CardIcons}>
+            <div className={styles.CardIcon} onClick={startEditing}>
+              <ion-icon name="pencil" />
+            </div>
+          </div>
+        )}
+        {card.text}
+      </Card>
+    );
+  } else {
+    return (
+      <CardEditor
+        text={card.text}
+        onSave={handleEditCard}
+        onDelete={handleDeleteCard}
+        onCancel={endEditing}
+      />
+    );
+  }
 };
 export default TaskCard;
