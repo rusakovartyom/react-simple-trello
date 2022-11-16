@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Card from './Card';
+import TaskCard from './TaskCard';
 
 import styles from './List.module.css';
 
@@ -31,7 +31,12 @@ const List = (props) => {
 
       {list.cards &&
         list.cards.map((cardId, index) => (
-          <Card key={cardId} cardId={cardId} index={index} listId={list._id} />
+          <TaskCard
+            key={cardId}
+            cardId={cardId}
+            index={index}
+            listId={list._id}
+          />
         ))}
     </div>
   );
