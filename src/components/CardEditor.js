@@ -27,7 +27,7 @@ const CardEditor = (props) => {
         <TextareaAutosize
           autoFocus
           className={styles.EditCardTextarea}
-          placeholder="Enter the text for new card..."
+          placeholder="Enter the text for this card..."
           value={text}
           onChange={handleChangeText}
           onKeyDown={onEnter}
