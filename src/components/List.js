@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import TaskCard from './TaskCard';
+import CardEditor from './CardEditor';
+import shortid from 'shortid';
+import { listsActions } from '../store/lists-slice';
+import { cardsActions } from '../store/cards-slice';
 
 import styles from './List.module.css';
 
