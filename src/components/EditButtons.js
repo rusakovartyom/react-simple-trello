@@ -1,3 +1,4 @@
+import styles from './EditButtons.module.css';
 
 const EditButtons = (props) => {
   return (
