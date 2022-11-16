@@ -17,6 +17,8 @@ const EditButtons = (props) => {
         </div>
       )}
       <div className={styles.EditButtonCancel} onClick={props.handleCancel}>
+        <ion-icon name="close" />
+      </div>
     </div>
   );
 };
