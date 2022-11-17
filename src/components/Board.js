@@ -21,7 +21,7 @@ const Board = () => {
       ))}
       <div className={styles.AddList}>
         {isAddingList ? (
-          <AddList onClick={toggleAddingList} />
+          <AddList toggleAddingList={toggleAddingList} />
         ) : (
           <div className={styles.AddListButton} onClick={toggleAddingList}>
             <ion-icon name="add" /> Add a list
