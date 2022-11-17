@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
+
 import styles from './ListEditor.module.css';
 
 const ListEditor = (props) => {
