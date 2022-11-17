@@ -16,11 +16,9 @@ const TaskCard = (props) => {
 
   const startHover = () => {
     setIsHovered(true);
-    console.log('Hovering.');
   };
   const endHover = () => {
     setIsHovered(false);
-    console.log('Not hovering.');
   };
 
   const startEditing = () => {
