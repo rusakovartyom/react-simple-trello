@@ -9,6 +9,10 @@ const Board = () => {
   const [isAddingList, setIsAddingList] = useState(false);
   const board = useSelector((state) => state.board);
 
+  const toggleAddingList = () => {
+    setIsAddingList(!isAddingList);
+  };
+
   return (
     <div className={styles.Board}>
       {board.lists.map((listId, index) => (
