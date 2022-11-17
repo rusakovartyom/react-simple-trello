@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import List from './List';
+import AddList from './AddList';
 
 import styles from './Board.module.css';
 
@@ -18,6 +19,15 @@ const Board = () => {
       {board.lists.map((listId, index) => (
         <List listId={listId} key={listId} index={index} />
       ))}
+      <div className={styles.AddList}>
+        {isAddingList ? (
+          <AddList onClick={toggleAddingList} />
+        ) : (
+          <div className={styles.AddListButton} onClick={toggleAddingList}>
+            <ion-icon name="add" /> Add a list
+          </div>
+        )}
+      </div>
     </div>
   );
 };
