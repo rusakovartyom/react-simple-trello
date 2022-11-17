@@ -34,6 +34,11 @@ const AddList = (props) => {
         onClickOutside={props.toggleAddingList}
         saveList={createList}
       />
+      <EditButtons
+        handleSave={createList}
+        handleCancel={props.toggleAddingList}
+        saveLabel={'Add list'}
+      />
     </div>
   );
 };
