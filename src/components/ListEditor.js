@@ -36,6 +36,17 @@ const ListEditor = (props) => {
   useOnClickOutside(ref, () => props.onClickOutside(false));
 
   return (
+    <div className={styles.ListTitleEdit} ref={ref}>
+      <TextareaAutosize
+        className={styles.ListTitleTextarea}
+        autoFocus
+        placeholder="Enter list title..."
+        value={props.title}
+        onChange={props.handleChangeTitle}
+        onKeyDown={onEnter}
+      />
+      {props.deleteList && <ion-icon name="trash" onClick={props.deleteList} />}
+    </div>
   );
 };
 export default ListEditor;
