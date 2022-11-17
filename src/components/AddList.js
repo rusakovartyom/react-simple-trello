@@ -10,6 +10,20 @@ import styles from './AddList.module.css';
 
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
+
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const createList = async () => {
+    props.toggleAddingList();
+
+    const listId = shortid.generate();
+
+    dispatch(boardActions.addList({ listId }));
+    dispatch(listsActions.addList({ listId, listTitle: title }));
+  };
+
   return (
     <div className={styles.AddList}>
       <div>List Editor</div>
