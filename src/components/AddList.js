@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { boardActions } from '../store/board-slice';
+import { listsActions } from '../store/lists-slice';
+import shortid from 'shortid';
+
 import EditButtons from './EditButtons';
 
 import styles from './AddList.module.css';
