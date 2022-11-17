@@ -37,7 +37,7 @@ const TaskCard = (props) => {
   };
 
   const handleDeleteCard = async () => {
-    const { listId, card } = props;
+    const { listId } = props;
 
     dispatch(cardsActions.deleteCard({ cardId: card._id, listId }));
     dispatch(listsActions.deleteCard({ cardId: card._id, listId }));
