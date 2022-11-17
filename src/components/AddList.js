@@ -5,9 +5,11 @@ import { listsActions } from '../store/lists-slice';
 import shortid from 'shortid';
 
 import EditButtons from './EditButtons';
+import ListEditor from './ListEditor';
 
 import styles from './AddList.module.css';
 
+const AddList = (props) => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
@@ -26,8 +28,12 @@ import styles from './AddList.module.css';
 
   return (
     <div className={styles.AddList}>
-      <div>List Editor</div>
-      <EditButtons />
+      <ListEditor
+        title={title}
+        handleChangeTitle={handleChangeTitle}
+        onClickOutside={props.toggleAddingList}
+        saveList={createList}
+      />
     </div>
   );
 };
