@@ -50,8 +50,12 @@ const TaskCard = (props) => {
       <Card onMouseEnter={startHover} onMouseLeave={endHover}>
         {isHovered && (
           <div className={styles.CardIcons}>
-            <div className={styles.CardIcon} onClick={startEditing}>
-              <ion-icon name="pencil" />
+            <div
+              className={styles.CardIcon}
+              onClick={startEditing}
+              title="Edit"
+            >
+              <ion-icon name="create-outline" />
             </div>
           </div>
         )}
