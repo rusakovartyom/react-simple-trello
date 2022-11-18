@@ -5,11 +5,15 @@
   height: fit-content;
   margin: 10px;
   margin-right: 0;
-  border: 5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0);
+  box-shadow: 3px 3px rgba(0, 0, 0);
 }
 
 .Title {
+  font-weight: bold;
   cursor: pointer;
+  margin: 6px;
   padding: 10px;
   overflow-wrap: break-word;
 }
@@ -20,16 +24,18 @@
   padding: 10px;
   color: #6b808c;
   border: none;
+  border-radius: 0 0 5px 5px;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .ToggleAddCard:hover {
   background-color: rgba(9, 45, 66, 0.13);
-  color: #17394d;
-  text-decoration: underline;
+  color: #000;
 }
 
 .ToggleAddCard ion-icon {
   margin-right: 2px;
+  --ionicon-stroke-width: 80px;
 }
