@@ -1,33 +1,33 @@
 .List {
   background: #dfe3e6;
+  border: 2px solid rgba(0, 0, 0);
+  border-radius: 5px;
+  box-shadow: 3px 3px rgba(0, 0, 0);
   flex-shrink: 0;
-  width: 272px;
   height: fit-content;
   margin: 10px;
   margin-right: 0;
-  border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0);
-  box-shadow: 3px 3px rgba(0, 0, 0);
+  width: 272px;
 }
 
 .Title {
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
   margin: 6px;
-  padding: 10px;
   overflow-wrap: break-word;
+  padding: 10px;
 }
 
 .ToggleAddCard {
-  width: 100%;
-  cursor: pointer;
-  padding: 10px;
-  color: #6b808c;
+  align-items: center;
   border: none;
   border-radius: 0 0 5px 5px;
+  color: #6b808c;
+  cursor: pointer;
   display: flex;
-  align-items: center;
   font-weight: bold;
+  padding: 10px;
+  width: 100%;
 }
 
 .ToggleAddCard:hover {

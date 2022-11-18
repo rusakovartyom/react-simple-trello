@@ -1,16 +1,16 @@
 .ListTitleEdit {
-  display: flex;
   align-items: center;
+  display: flex;
   padding: 5px;
 }
 
 .ListTitleDelete {
-  cursor: pointer;
-  padding: 5px 5px 2px;
-  margin-right: 2px;
-  font-size: 23px;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-size: 23px;
+  margin-right: 2px;
+  padding: 5px 5px 2px;
 }
 
 .ListTitleDelete ion-icon {
@@ -22,14 +22,14 @@
 }
 
 .ListTitleTextarea {
-  width: 100%;
-  margin: 6px;
-  border-radius: 3px;
   border: none;
-  resize: none;
-  outline: none;
+  border-radius: 3px;
   font-size: 15px;
+  margin: 6px;
+  outline: none;
   padding: 10px;
+  resize: none;
+  width: 100%;
 }
 
 .ListTitleTextarea:focus {

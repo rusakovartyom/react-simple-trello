@@ -3,16 +3,16 @@
 }
 
 .EditButton {
-  cursor: pointer;
   border: 2px solid #000;
-  box-shadow: 1px 1px 0 0 #000;
-  width: fit-content;
-  margin: 0 5px 10px;
-  padding: 6px 20px;
   border-radius: 5px;
+  box-shadow: 1px 1px 0 0 #000;
   color: #000;
+  cursor: pointer;
   font-weight: 700;
+  margin: 0 5px 10px;
   outline: none;
+  padding: 6px 20px;
+  width: fit-content;
 }
 
 .EditButton:hover {
@@ -29,11 +29,11 @@
 }
 
 .EditButtonCancel {
-  cursor: pointer;
-  margin-bottom: 10px;
-  display: flex;
   align-items: center;
+  cursor: pointer;
+  display: flex;
   font-size: 20px;
+  margin-bottom: 10px;
   opacity: 0.5;
   outline: none;
 }
