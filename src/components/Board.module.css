@@ -10,23 +10,24 @@
 }
 
 .AddListButton {
-  background-color: rgba(0, 0, 0, 0.12);
+  border: 2px solid #000;
+  box-shadow: 2px 2px #000;
   border-radius: 10px;
   cursor: pointer;
-  color: #fff;
+  color: #000;
   display: flex;
   align-items: center;
   min-height: 32px;
   padding: 5px 8px;
-  transition: background-color 85ms ease-in, opacity 40ms ease-in,
-    border-color 85ms ease-in;
   height: fit-content;
+  font-weight: bold;
 }
 
 .AddListButton:hover {
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, 0.12);
 }
 
 .AddListButton ion-icon {
   margin-right: 1px;
+  --ionicon-stroke-width: 80px;
 }
