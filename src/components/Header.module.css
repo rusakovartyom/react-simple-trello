@@ -1,9 +1,6 @@
 .Header {
-  font-family: 'Rubik Mono One', sans-serif;
   color: rgb(16, 22, 47);
-  border-bottom: 5px solid rgb(16, 22, 47);
-  padding: 10px 0;
-  text-align: center;
-  font-size: 25px;
-  font-weight: 400;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }

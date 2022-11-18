@@ -47,7 +47,11 @@ const ListEditor = (props) => {
         onChange={props.handleChangeTitle}
         onKeyDown={onEnter}
       />
-      {props.deleteList && <ion-icon name="trash" onClick={props.deleteList} />}
+      {props.deleteList && (
+        <div className={styles.ListTitleDelete} onClick={props.deleteList}>
+          <ion-icon name="trash" />
+        </div>
+      )}
     </div>
   );
 };

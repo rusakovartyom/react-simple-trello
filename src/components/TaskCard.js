@@ -53,7 +53,7 @@ const TaskCard = (props) => {
               onClick={startEditing}
               title="Edit"
             >
-              <ion-icon name="create-outline" />
+              <ion-icon name="pencil-sharp" />
             </div>
           </div>
         )}
