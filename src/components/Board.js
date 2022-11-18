@@ -1,34 +1,68 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { boardActions } from '../store/board-slice';
 
 import List from './List';
 import AddList from './AddList';
 
 import styles from './Board.module.css';
 
-const Board = () => {
+const Board = (props) => {
   const [isAddingList, setIsAddingList] = useState(false);
   const board = useSelector((state) => state.board);
+  const dispatch = useDispatch();
 
   const toggleAddingList = () => {
     setIsAddingList(!isAddingList);
   };
 
+  const handleDragEnd = ({ source, destination, type }) => {
+    // Return list if it was dropped outside of allowed zones
+    if (!destination) return;
+
+    // Move list
+    if (type === 'COLUMN') {
+      // Prevent update if nothing got changed
+      if (source.index !== destination.index) {
+        dispatch(
+          boardActions.moveList({
+            oldListIndex: source.index,
+            newListIndex: destination.index,
+          })
+        );
+      }
+      return;
+    }
+  };
+
   return (
-    <div className={styles.Board}>
-      {board.lists.map((listId, index) => (
-        <List listId={listId} key={listId} index={index} />
-      ))}
-      <div className={styles.AddList}>
-        {isAddingList ? (
-          <AddList toggleAddingList={toggleAddingList} />
-        ) : (
-          <div className={styles.AddListButton} onClick={toggleAddingList}>
-            <ion-icon name="add" /> Add a list
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="board" direction="horizontal" type="COLUMN">
+        {(provided, _snapshot) => (
+          <div className={styles.Board} ref={provided.innerRef}>
+            {board.lists.map((listId, index) => (
+              <List listId={listId} key={listId} index={index} />
+            ))}
+
+            {provided.placeholder}
+
+            <div className={styles.AddList}>
+              {isAddingList ? (
+                <AddList toggleAddingList={toggleAddingList} />
+              ) : (
+                <div
+                  className={styles.AddListButton}
+                  onClick={toggleAddingList}
+                >
+                  <ion-icon name="add" /> Add a list
+                </div>
+              )}
+            </div>
           </div>
         )}
-      </div>
-    </div>
+      </Droppable>
+    </DragDropContext>
   );
 };
 
