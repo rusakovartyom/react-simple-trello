@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Draggable } from 'react-beautiful-dnd';
 
 import TaskCard from './TaskCard';
 import CardEditor from './CardEditor';
@@ -59,41 +60,54 @@ const List = (props) => {
   };
 
   return (
-    <div className={styles.List}>
-      {isEditingTitle ? (
-        <ListEditor
-          list={list}
-          title={title}
-          handleChangeTitle={handleChangeTitle}
-          saveList={editListTitle}
-          onClickOutside={editListTitle}
-          deleteList={deleteList}
-        />
-      ) : (
-        <div className={styles.Title} onClick={toggleEditingTitle}>
-          {list.title}
+    <Draggable draggableId={props.listId} index={props.index}>
+      {(provided, _snapshot) => (
+        <div
+          className={styles.List}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          {isEditingTitle ? (
+            <ListEditor
+              list={list}
+              title={title}
+              handleChangeTitle={handleChangeTitle}
+              saveList={editListTitle}
+              onClickOutside={editListTitle}
+              deleteList={deleteList}
+            />
+          ) : (
+            <div className={styles.Title} onClick={toggleEditingTitle}>
+              {list.title}
+            </div>
+          )}
+
+          {list.cards &&
+            list.cards.map((cardId, index) => (
+              <TaskCard
+                key={cardId}
+                cardId={cardId}
+                index={index}
+                listId={list._id}
+              />
+            ))}
+
+          {addingCard ? (
+            <CardEditor
+              onSave={handleAddCard}
+              onCancel={toggleAddingCard}
+              adding
+            />
+          ) : (
+            <button className={styles.ToggleAddCard} onClick={toggleAddingCard}>
+              <ion-icon name="add" />
+              Add a card
+            </button>
+          )}
         </div>
       )}
-
-      {list.cards &&
-        list.cards.map((cardId, index) => (
-          <TaskCard
-            key={cardId}
-            cardId={cardId}
-            index={index}
-            listId={list._id}
-          />
-        ))}
-
-      {addingCard ? (
-        <CardEditor onSave={handleAddCard} onCancel={toggleAddingCard} adding />
-      ) : (
-        <button className={styles.ToggleAddCard} onClick={toggleAddingCard}>
-          <ion-icon name="add" />
-          Add a card
-        </button>
-      )}
-    </div>
+    </Draggable>
   );
 };
 export default List;
