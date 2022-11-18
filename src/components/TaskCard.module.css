@@ -9,19 +9,17 @@
 
 .CardIcon {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  margin: 2px;
-  color: rgba(0, 0, 0, 0.5);
+  color: #000;
   background: #f5f6f7;
-  opacity: 0.9;
 }
 
 .CardIcon:hover {
-  opacity: 1;
   background: rgba(220, 220, 220, 1);
 }
