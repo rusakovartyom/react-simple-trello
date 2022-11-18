@@ -17,6 +17,7 @@ const boardSlice = createSlice({
       const newLists = Array.from(state.lists);
       const [removedList] = newLists.splice(oldListIndex, 1);
       newLists.splice(newListIndex, 0, removedList);
+      return { lists: newLists };
     },
     deleteList: (state, action) => {
       const { listId } = action.payload;
