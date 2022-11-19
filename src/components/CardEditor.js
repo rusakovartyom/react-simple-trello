@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import Card from './Card';
 import EditButtons from './EditButtons';
 
 import styles from './CardEditor.module.css';
@@ -22,7 +21,7 @@ const CardEditor = (props) => {
 
   return (
     <div className={styles.EditCard}>
-      <Card>
+      <div className={styles.EditCardWrapper}>
         <TextareaAutosize
           autoFocus
           className={styles.EditCardTextarea}
@@ -31,7 +30,7 @@ const CardEditor = (props) => {
           onChange={handleChangeText}
           onKeyDown={onEnter}
         />
-      </Card>
+      </div>
       <EditButtons
         handleSave={() => props.onSave(text)}
         saveLabel={props.adding ? 'Add card' : 'Save'}
