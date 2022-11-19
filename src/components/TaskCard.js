@@ -27,7 +27,7 @@ const TaskCard = (props) => {
     setIsEditing(true);
   };
   const endEditing = () => {
-    setIsHovered(true);
+    setIsHovered(false);
     setIsEditing(false);
   };
 
@@ -54,7 +54,7 @@ const TaskCard = (props) => {
             innerRef={provided.innerRef}
             provided={provided}
           >
-            {isHovered && (
+            {isHovered ? (
               <div className={styles.CardIcons}>
                 <div
                   className={styles.CardIcon}
@@ -64,7 +64,7 @@ const TaskCard = (props) => {
                   <ion-icon name="pencil-sharp" />
                 </div>
               </div>
-            )}
+            ) : null}
             {card.text}
           </Card>
         )}
