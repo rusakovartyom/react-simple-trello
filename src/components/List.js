@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Draggable } from 'react-beautiful-dnd';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import TaskCard from './TaskCard';
 import CardEditor from './CardEditor';
@@ -82,29 +82,37 @@ const List = (props) => {
               {list.title}
             </div>
           )}
-
-          {list.cards &&
-            list.cards.map((cardId, index) => (
-              <TaskCard
-                key={cardId}
-                cardId={cardId}
-                index={index}
-                listId={list._id}
-              />
-            ))}
-
-          {addingCard ? (
-            <CardEditor
-              onSave={handleAddCard}
-              onCancel={toggleAddingCard}
-              adding
-            />
-          ) : (
-            <button className={styles.ToggleAddCard} onClick={toggleAddingCard}>
-              <ion-icon name="add" />
-              Add a card
-            </button>
-          )}
+          <Droppable droppableId={list._id}>
+            {(provided, _snapshot) => (
+              <div ref={provided.innerRef}>
+                {list.cards &&
+                  list.cards.map((cardId, index) => (
+                    <TaskCard
+                      key={cardId}
+                      cardId={cardId}
+                      index={index}
+                      listId={list._id}
+                    />
+                  ))}
+                {provided.placeholder}
+                {addingCard ? (
+                  <CardEditor
+                    onSave={handleAddCard}
+                    onCancel={toggleAddingCard}
+                    adding
+                  />
+                ) : (
+                  <button
+                    className={styles.ToggleAddCard}
+                    onClick={toggleAddingCard}
+                  >
+                    <ion-icon name="add" />
+                    Add a card
+                  </button>
+                )}
+              </div>
+            )}
+          </Droppable>
         </div>
       )}
     </Draggable>
