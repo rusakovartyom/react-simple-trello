@@ -1,11 +1,8 @@
-import { useEffect, useRef } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import styles from './ListEditor.module.css';
 
 const ListEditor = (props) => {
-  const ref = useRef();
-
   const onEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -14,7 +11,7 @@ const ListEditor = (props) => {
   };
 
   return (
-    <div className={styles.ListTitleEdit} ref={ref}>
+    <div className={styles.ListTitleEdit}>
       <TextareaAutosize
         className={styles.ListTitleTextarea}
         autoFocus
