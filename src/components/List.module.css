@@ -1,7 +1,7 @@
 .List {
   background: #dfe3e6;
   border: 2px solid rgba(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 3px 3px rgba(0, 0, 0);
   flex-shrink: 0;
   height: fit-content;
@@ -21,7 +21,7 @@
 .ToggleAddCard {
   align-items: center;
   border: none;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 10px 10px;
   color: #6b808c;
   cursor: pointer;
   display: flex;

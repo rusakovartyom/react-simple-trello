@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cardsActions } from '../store/cards-slice';
 import { listsActions } from '../store/lists-slice';
+import { Draggable } from 'react-beautiful-dnd';
 
 import Card from './Card';
 import CardEditor from './CardEditor';
@@ -45,20 +46,29 @@ const TaskCard = (props) => {
 
   if (!isEditing) {
     return (
-      <Card onMouseEnter={startHover} onMouseLeave={endHover}>
-        {isHovered && (
-          <div className={styles.CardIcons}>
-            <div
-              className={styles.CardIcon}
-              onClick={startEditing}
-              title="Edit"
-            >
-              <ion-icon name="pencil-sharp" />
-            </div>
-          </div>
+      <Draggable draggableId={card._id} index={props.index}>
+        {(provided, _snapshot) => (
+          <Card
+            onMouseEnter={startHover}
+            onMouseLeave={endHover}
+            innerRef={provided.innerRef}
+            provided={provided}
+          >
+            {isHovered && (
+              <div className={styles.CardIcons}>
+                <div
+                  className={styles.CardIcon}
+                  onClick={startEditing}
+                  title="Edit"
+                >
+                  <ion-icon name="pencil-sharp" />
+                </div>
+              </div>
+            )}
+            {card.text}
+          </Card>
         )}
-        {card.text}
-      </Card>
+      </Draggable>
     );
   } else {
     return (
