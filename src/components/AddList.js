@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { boardActions } from '../store/board-slice';
 import { listsActions } from '../store/lists-slice';
@@ -12,6 +12,7 @@ import styles from './AddList.module.css';
 const AddList = (props) => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
+  const ref = useRef();
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
@@ -26,8 +27,33 @@ const AddList = (props) => {
     dispatch(listsActions.addList({ listId, listTitle: title }));
   };
 
+  // Custom hook for detecting click outside of the element
+  const useOnClickOutside = (ref, handler) => {
+    useEffect(() => {
+      const listener = (event) => {
+        // Do nothing if clicking ref's element or descendent elements
+        if (!ref.current || ref.current.contains(event.target)) {
+          console.log('Nothing');
+          return;
+        }
+
+        handler(event);
+      };
+
+      document.addEventListener('mousedown', listener);
+      document.addEventListener('touchstart', listener);
+      return () => {
+        document.removeEventListener('mousedown', listener);
+        document.removeEventListener('touchstart', listener);
+      };
+    }, [ref, handler]);
+  };
+
+  // Calling hook
+  useOnClickOutside(ref, () => props.toggleAddingList(false));
+
   return (
-    <div className={styles.AddList}>
+    <div className={styles.AddList} ref={ref}>
       <ListEditor
         title={title}
         handleChangeTitle={handleChangeTitle}
