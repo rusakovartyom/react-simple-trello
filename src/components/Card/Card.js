@@ -8,7 +8,7 @@ const Card = (props) => {
       ref={props.innerRef}
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
-      className={styles.Card}
+      className={styles.card}
     >
       {props.children}
     </div>

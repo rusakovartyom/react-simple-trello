@@ -55,9 +55,9 @@ const TaskCard = (props) => {
             provided={provided}
           >
             {isHovered ? (
-              <div className={styles.CardIcons}>
+              <div className={styles.cardIcons}>
                 <div
-                  className={styles.CardIcon}
+                  className={styles.cardIcon}
                   onClick={startEditing}
                   title="Edit"
                 >

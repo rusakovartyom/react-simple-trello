@@ -1,8 +1,8 @@
-.EditButtons {
+.editButtons {
   display: flex;
 }
 
-.EditButton {
+.editButton {
   border: 2px solid #000;
   border-radius: 5px;
   box-shadow: 1px 1px 0 0 #000;
@@ -15,20 +15,20 @@
   width: fit-content;
 }
 
-.EditButton:hover {
+.editButton:hover {
   filter: brightness(90%);
 }
 
-.EditButtonSave {
+.editButtonSave {
   background-color: #5aac44;
 }
 
-.EditButtonDelete {
+.editButtonDelete {
   background-color: #ea2525;
   margin-left: 0;
 }
 
-.EditButtonCancel {
+.editButtonCancel {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -38,10 +38,10 @@
   outline: none;
 }
 
-.EditButtonCancel ion-icon {
+.editButtonCancel ion-icon {
   font-size: 25px;
 }
 
-.EditButtonCancel:hover {
+.editButtonCancel:hover {
   opacity: 1;
 }

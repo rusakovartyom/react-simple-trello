@@ -54,19 +54,19 @@ const Board = (props) => {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="board" direction="horizontal" type="COLUMN">
         {(provided, _snapshot) => (
-          <div className={styles.Board} ref={provided.innerRef}>
+          <div className={styles.board} ref={provided.innerRef}>
             {board.lists.map((listId, index) => (
               <List listId={listId} key={listId} index={index} />
             ))}
 
             {provided.placeholder}
 
-            <div className={styles.AddList}>
+            <div className={styles.addList}>
               {isAddingList ? (
                 <AddList toggleAddingList={toggleAddingList} />
               ) : (
                 <div
-                  className={styles.AddListButton}
+                  className={styles.addListButton}
                   onClick={toggleAddingList}
                 >
                   <ion-icon name="add" /> Add a list

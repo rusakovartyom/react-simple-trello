@@ -63,7 +63,7 @@ const List = (props) => {
     <Draggable draggableId={props.listId} index={props.index}>
       {(provided, _snapshot) => (
         <div
-          className={styles.List}
+          className={styles.list}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -78,7 +78,7 @@ const List = (props) => {
               deleteList={deleteList}
             />
           ) : (
-            <div className={styles.Title} onClick={toggleEditingTitle}>
+            <div className={styles.title} onClick={toggleEditingTitle}>
               {list.title}
             </div>
           )}
@@ -103,7 +103,7 @@ const List = (props) => {
                   />
                 ) : (
                   <button
-                    className={styles.ToggleAddCard}
+                    className={styles.toggleAddCard}
                     onClick={toggleAddingCard}
                   >
                     <ion-icon name="add" />

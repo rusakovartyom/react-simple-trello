@@ -1,4 +1,4 @@
-.CardIcons {
+.cardIcons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -7,7 +7,7 @@
   top: 5px;
 }
 
-.CardIcon {
+.cardIcon {
   align-items: center;
   background: #f5f6f7;
   border-radius: 5px;
@@ -20,6 +20,6 @@
   width: 28px;
 }
 
-.CardIcon:hover {
+.cardIcon:hover {
   background: rgba(220, 220, 220, 1);
 }

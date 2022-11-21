@@ -52,7 +52,7 @@ const AddList = (props) => {
   useOnClickOutside(ref, () => props.toggleAddingList(false));
 
   return (
-    <div className={styles.AddList} ref={ref}>
+    <div className={styles.addList} ref={ref}>
       <ListEditor
         title={title}
         handleChangeTitle={handleChangeTitle}
