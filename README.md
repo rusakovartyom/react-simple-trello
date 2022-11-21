@@ -1,6 +1,6 @@
 # Simple Trello
 
-A simple trello clone with drag-and-drop, powered by React.js and Redux.
+A trello clone with drag-and-drop, powered by React.js and Redux.
 
 # Features
 
