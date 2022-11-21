@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { boardActions } from '../store/board-slice';
-import { listsActions } from '../store/lists-slice';
+import { boardActions } from '../../store/boardSlice';
+import { listsActions } from '../../store/listsSlice';
 
-import List from './List';
-import AddList from './AddList';
+import List from '../List';
+import AddList from '../AddList';
 
 import styles from './Board.module.css';
 
@@ -54,19 +54,19 @@ const Board = (props) => {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="board" direction="horizontal" type="COLUMN">
         {(provided, _snapshot) => (
-          <div className={styles.Board} ref={provided.innerRef}>
+          <div className={styles.board} ref={provided.innerRef}>
             {board.lists.map((listId, index) => (
               <List listId={listId} key={listId} index={index} />
             ))}
 
             {provided.placeholder}
 
-            <div className={styles.AddList}>
+            <div className={styles.addList}>
               {isAddingList ? (
                 <AddList toggleAddingList={toggleAddingList} />
               ) : (
                 <div
-                  className={styles.AddListButton}
+                  className={styles.addListButton}
                   onClick={toggleAddingList}
                 >
                   <ion-icon name="add" /> Add a list

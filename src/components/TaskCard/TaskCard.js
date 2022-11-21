@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardsActions } from '../store/cards-slice';
-import { listsActions } from '../store/lists-slice';
+import { cardsActions } from '../../store/cardsSlice';
+import { listsActions } from '../../store/listsSlice';
 import { Draggable } from 'react-beautiful-dnd';
 
-import Card from './Card';
-import CardEditor from './CardEditor';
+import Card from '../Card';
+import CardEditor from '../CardEditor';
 
 import styles from './TaskCard.module.css';
 
@@ -55,9 +55,9 @@ const TaskCard = (props) => {
             provided={provided}
           >
             {isHovered ? (
-              <div className={styles.CardIcons}>
+              <div className={styles.cardIcons}>
                 <div
-                  className={styles.CardIcon}
+                  className={styles.cardIcon}
                   onClick={startEditing}
                   title="Edit"
                 >

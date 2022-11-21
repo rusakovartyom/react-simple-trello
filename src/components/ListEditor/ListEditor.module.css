@@ -1,10 +1,10 @@
-.ListTitleEdit {
+.listTitleEdit {
   align-items: center;
   display: flex;
   padding: 5px;
 }
 
-.ListTitleDelete {
+.listTitleDelete {
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -13,15 +13,15 @@
   padding: 5px 5px 2px;
 }
 
-.ListTitleDelete ion-icon {
+.listTitleDelete ion-icon {
   color: #000;
 }
 
-.ListTitleDelete:hover {
+.listTitleDelete:hover {
   background: rgba(211, 211, 211, 1);
 }
 
-.ListTitleTextarea {
+.listTitleTextarea {
   border: none;
   border-radius: 5px;
   font-size: 15px;

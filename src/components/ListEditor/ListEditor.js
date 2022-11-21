@@ -11,9 +11,9 @@ const ListEditor = (props) => {
   };
 
   return (
-    <div className={styles.ListTitleEdit}>
+    <div className={styles.listTitleEdit}>
       <TextareaAutosize
-        className={styles.ListTitleTextarea}
+        className={styles.listTitleTextarea}
         autoFocus
         placeholder="Enter list title..."
         value={props.title}
@@ -21,7 +21,7 @@ const ListEditor = (props) => {
         onKeyDown={onEnter}
       />
       {props.deleteList && (
-        <div className={styles.ListTitleDelete} onClick={props.deleteList}>
+        <div className={styles.listTitleDelete} onClick={props.deleteList}>
           <ion-icon name="trash" />
         </div>
       )}

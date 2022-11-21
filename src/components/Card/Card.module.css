@@ -1,4 +1,4 @@
-.Card {
+.card {
   background: white;
   border: 2px solid rgba(0, 0, 0);
   border-radius: 5px;
@@ -11,6 +11,6 @@
   position: relative;
 }
 
-.Card:hover {
+.card:hover {
   background: #f5f6f7;
 }

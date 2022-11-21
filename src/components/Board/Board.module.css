@@ -1,15 +1,15 @@
-.Board {
+.board {
   display: flex;
   overflow-x: auto;
 }
 
-.AddList {
+.addList {
   flex-shrink: 0;
   margin: 10px;
   width: 272px;
 }
 
-.AddListButton {
+.addListButton {
   align-items: center;
   border: 2px solid #000;
   border-radius: 10px;
@@ -23,11 +23,11 @@
   padding: 5px 8px;
 }
 
-.AddListButton:hover {
+.addListButton:hover {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.AddListButton ion-icon {
+.addListButton ion-icon {
   margin-right: 1px;
   --ionicon-stroke-width: 80px;
 }
