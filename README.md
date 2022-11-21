@@ -7,18 +7,17 @@ A simple trello clone with drag-and-drop, powered by React.js and Redux.
 This app gives you an opportunity to create/delete lists, cards in these lists and rearrange them however you like. For first time visitors it'll create a default version of the board: with two lists, two cards in each of them.
 
 # Project structure
-
 .
 ├── README.md
 ├── package-lock.json
 ├── package.json
 ├── public
 └── src
-├── components
-│ └── Component
-│ ├── index.js
-│ ├── Component.js
-│ ├── component.module.css
+│   ├── components
+│   └── Component
+│       ├── index.js
+│       ├── Component.js
+│       ├── component.module.css
 ├── index.css
 └── index.js
 
