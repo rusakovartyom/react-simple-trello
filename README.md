@@ -13,7 +13,7 @@ This project was built with:
 - [React.js](https://reactjs.org/), to make this app modular, scalable and simple for adding future features
 - [Redux (Redux Toolkit)](https://redux-toolkit.js.org/), to manage the global state of the app
 
-I used additional modules:
+I used additional packages:
 
 - [lodash.throttle](https://www.npmjs.com/package/lodash.throttle): for preventing excessive amount of calls of a function
 - [react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize): creates a react component that will render a textarea that resizes itself when needed
@@ -22,7 +22,7 @@ I used additional modules:
 
 # Future features
 
-- Labels for cards (set of default ones, an opportunity to create custom)
+- Labels for cards (set of default ones, an opportunity to create custom ones)
 - Functionality to add attachments to cards (images, links, documents)
 - Timestamps for cards (was created/was edited)
 - Authentication (via mail/anonymous)
