@@ -16,7 +16,7 @@ This project was built with:
 I used additional packages:
 
 - [lodash.throttle](https://www.npmjs.com/package/lodash.throttle): for preventing excessive amount of calls of a function
-- [react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize): creates a react component that will render a textarea that resizes itself when needed
+- [react-textarea-autosize](https://github.com/Andarist/react-textarea-autosize): creates a react component that will render a textarea that resizes itself when needed
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd): simple and lightweight library for implementing drag-and-drop functionalities to cards and lists
 - [shortid](https://github.com/dylang/shortid): for generating unique ids
 
