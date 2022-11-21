@@ -13,12 +13,16 @@ This app gives you an opportunity to create/delete lists, cards in these lists a
 ├── package-lock.json
 ├── package.json
 ├── public
-└── src
+├── src
 │   ├── components
-│   └── Component
+│   │   └── Component
+│   │       ├── index.js
+│   │       ├── Component.js
+│   │       └── component.module.css
+│   └── store
 │       ├── index.js
-│       ├── Component.js
-│       ├── component.module.css
+│       ├── state slices
+│       └── dummy data
 ├── index.css
 └── index.js
 ```
