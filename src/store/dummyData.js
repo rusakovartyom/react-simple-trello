@@ -1,7 +1,7 @@
 import shortid from 'shortid';
-import { boardActions } from './board-slice';
-import { listsActions } from './lists-slice';
-import { cardsActions } from './cards-slice';
+import { boardActions } from './boardSlice';
+import { listsActions } from './listsSlice';
+import { cardsActions } from './cardsSlice';
 
 const dummyData = (store) => {
   const dummyLists = {

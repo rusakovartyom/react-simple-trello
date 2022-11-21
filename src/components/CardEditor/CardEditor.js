@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import EditButtons from './EditButtons';
+import EditButtons from '../EditButtons';
 
 import styles from './CardEditor.module.css';
 

@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { boardActions } from '../store/board-slice';
-import { listsActions } from '../store/lists-slice';
+import { boardActions } from '../../store/boardSlice';
+import { listsActions } from '../../store/listsSlice';
 import shortid from 'shortid';
 
-import EditButtons from './EditButtons';
-import ListEditor from './ListEditor';
+import EditButtons from '../EditButtons/EditButtons';
+import ListEditor from '../ListEditor/ListEditor';
 
 import styles from './AddList.module.css';
 
@@ -33,7 +33,6 @@ const AddList = (props) => {
       const listener = (event) => {
         // Do nothing if clicking ref's element or descendent elements
         if (!ref.current || ref.current.contains(event.target)) {
-          console.log('Nothing');
           return;
         }
 
@@ -63,7 +62,7 @@ const AddList = (props) => {
       <EditButtons
         handleSave={createList}
         handleCancel={props.toggleAddingList}
-        saveLabel={'Add list'}
+        saveLabel="Add list"
       />
     </div>
   );

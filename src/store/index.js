@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import boardSlice from './board-slice';
-import listsSlice from './lists-slice';
-import cardsSlice from './cards-slice';
+import boardSlice from './boardSlice';
+import listsSlice from './listsSlice';
+import cardsSlice from './cardsSlice';
 import throttle from 'lodash.throttle';
-import dummyData from './dummy-data';
+import dummyData from './dummyData';
 
 const saveState = (state) => {
   try {
