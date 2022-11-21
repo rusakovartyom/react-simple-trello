@@ -1,32 +1,6 @@
-# Simple Trello
+# Getting Started with Create React App
 
-A trello clone app with drag-and-drop, powered by React.js and Redux.
-
-# Features
-
-This app gives you an opportunity to create/delete lists, cards in these lists and rearrange them however you like via drag-and-drop. For first time visitors app will create a default version of the board with dummy data. After editing/adding new lists/cards — it'll save them in localStorage.
-
-# What I used
-
-This project was built with:
-
-- [React.js](https://reactjs.org/), to make this app modular, scalable and simple for adding future features
-- [Redux (Redux Toolkit)](https://redux-toolkit.js.org/), to manage the global state of the app
-
-I used additional modules:
-
-- [lodash.throttle](https://www.npmjs.com/package/lodash.throttle): for preventing excessive amount of calls of a function
-- [react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize): creates a react component that will render a textarea that resizes itself when needed
-- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd): simple and lightweight library for implementing drag-and-drop functionalities to cards and lists
-- [shortid](https://github.com/dylang/shortid): for generating unique ids
-
-# Future features
-
-- Labels for cards (set of default ones, an opportunity to create custom)
-- Functionality to add attachments to cards (images, links, documents)
-- Timestamps for cards (was created/was edited)
-- Authentication (via mail/anonymous)
-- Add Firebase for storing data
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -64,3 +38,33 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
