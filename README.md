@@ -10,8 +10,8 @@ This app gives you an opportunity to create/delete lists, cards in these lists a
 
 This project was built with:
 
-- [React.js](https://reactjs.org/), to make this app modular, scalable and simple for adding future features.
-- [Redux (Redux Toolkit)](https://redux-toolkit.js.org/), to manage the global state of the app.
+- [React.js](https://reactjs.org/), to make this app modular, scalable and simple for adding future features
+- [Redux (Redux Toolkit)](https://redux-toolkit.js.org/), to manage the global state of the app
 
 I used additional modules:
 
