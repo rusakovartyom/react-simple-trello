@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-import TaskCard from '../TaskCard';
-import CardEditor from '../CardEditor';
-import ListEditor from '../ListEditor';
+import TaskCard from 'components/TaskCard';
+import CardEditor from 'components/CardEditor';
+import ListEditor from 'components/ListEditor';
 import shortid from 'shortid';
-import { listsActions } from '../../store/listsSlice';
-import { cardsActions } from '../../store/cardsSlice';
+import { listsActions } from 'store/listsSlice';
+import { cardsActions } from 'store/cardsSlice';
 
 import styles from './List.module.css';
-import { boardActions } from '../../store/boardSlice';
+import { boardActions } from 'store/boardSlice';
 
 const List = (props) => {
   const list = useSelector((state) => state.listsById[props.listId]);

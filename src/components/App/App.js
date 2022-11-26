@@ -1,5 +1,5 @@
-import Header from '../Header';
-import Board from '../Board';
+import Header from 'components/Header';
+import Board from 'components/Board';
 
 import styles from './App.module.css';
 

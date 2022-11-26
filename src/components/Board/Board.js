@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { boardActions } from '../../store/boardSlice';
-import { listsActions } from '../../store/listsSlice';
+import { boardActions } from 'store/boardSlice';
+import { listsActions } from 'store/listsSlice';
 
-import List from '../List';
-import AddList from '../AddList';
+import List from 'components/List';
+import AddList from 'components/AddList';
 
 import styles from './Board.module.css';
 

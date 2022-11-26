@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardsActions } from '../../store/cardsSlice';
-import { listsActions } from '../../store/listsSlice';
+import { cardsActions } from 'store/cardsSlice';
+import { listsActions } from 'store/listsSlice';
 import { Draggable } from 'react-beautiful-dnd';
 
-import Card from '../Card';
-import CardEditor from '../CardEditor';
+import Card from 'components/Card';
+import CardEditor from 'components/CardEditor';
 
 import styles from './TaskCard.module.css';
 
