@@ -1,4 +1,4 @@
-import styles from './Header.module.css';
+import styles from './styles.module.css';
 
 const Header = (props) => {
   return <header className={styles.header}>{props.children}</header>;

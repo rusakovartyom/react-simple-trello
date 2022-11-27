@@ -2,7 +2,7 @@ import Header from 'components/Header';
 import Board from 'components/Board';
 import Footer from 'components/Footer';
 
-import styles from './App.module.css';
+import styles from './styles.module.css';
 
 const App = () => {
   return (

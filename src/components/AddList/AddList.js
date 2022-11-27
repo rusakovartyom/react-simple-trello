@@ -6,7 +6,7 @@ import shortid from 'shortid';
 import EditButtons from 'components/EditButtons';
 import ListEditor from 'components/ListEditor';
 
-import styles from './AddList.module.css';
+import styles from './styles.module.css';
 
 const AddList = (props) => {
   const [title, setTitle] = useState('');

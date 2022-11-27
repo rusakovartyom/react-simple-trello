@@ -9,7 +9,7 @@ import shortid from 'shortid';
 import { deleteList } from 'store/boardSlice';
 import { addCard, changeListTitle } from 'store/listsSlice';
 
-import styles from './List.module.css';
+import styles from './styles.module.css';
 
 const List = (props) => {
   const list = useSelector((state) => state.listsById[props.listId]);

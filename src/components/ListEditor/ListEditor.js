@@ -1,6 +1,6 @@
 import TextareaAutosize from 'react-textarea-autosize';
 
-import styles from './ListEditor.module.css';
+import styles from './styles.module.css';
 
 const ListEditor = (props) => {
   const onEnter = (e) => {

@@ -3,7 +3,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import EditButtons from 'components/EditButtons';
 
-import styles from './CardEditor.module.css';
+import styles from './styles.module.css';
 
 const CardEditor = (props) => {
   const [text, setText] = useState(props.text || '');

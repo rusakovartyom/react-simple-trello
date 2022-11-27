@@ -8,7 +8,7 @@ import { column } from 'const';
 import List from 'components/List';
 import AddList from 'components/AddList';
 
-import styles from './Board.module.css';
+import styles from './styles.module.css';
 
 const Board = (props) => {
   const [isAddingList, setIsAddingList] = useState(false);

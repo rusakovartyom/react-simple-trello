@@ -1,4 +1,4 @@
-import styles from './Card.module.css';
+import styles from './styles.module.css';
 
 const Card = ({ provided, innerRef, children, onClick, text }) => {
   return (
