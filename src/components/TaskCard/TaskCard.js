@@ -36,12 +36,11 @@ const TaskCard = (props) => {
       <Draggable draggableId={card._id} index={props.index}>
         {(provided, _snapshot) => (
           <Card
+            text={card.text}
             innerRef={provided.innerRef}
             provided={provided}
             onClick={handleStartEditing}
-          >
-            {card.text}
-          </Card>
+          />
         )}
       </Draggable>
     );
