@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cardsActions } from 'store/cardsSlice';
-import { listsActions } from 'store/listsSlice';
+import { deleteCard } from 'store/listsSlice';
 import { Draggable } from 'react-beautiful-dnd';
 
 import Card from 'components/Card';
@@ -40,8 +40,7 @@ const TaskCard = (props) => {
   const handleDeleteCard = async () => {
     const { listId } = props;
 
-    dispatch(cardsActions.deleteCard({ cardId: card._id, listId }));
-    dispatch(listsActions.deleteCard({ cardId: card._id, listId }));
+    dispatch(deleteCard({ cardId: card._id, listId }));
   };
 
   if (!isEditing) {

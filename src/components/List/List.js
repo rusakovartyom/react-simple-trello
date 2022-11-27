@@ -6,11 +6,10 @@ import TaskCard from 'components/TaskCard';
 import CardEditor from 'components/CardEditor';
 import ListEditor from 'components/ListEditor';
 import shortid from 'shortid';
-import { listsActions } from 'store/listsSlice';
-import { cardsActions } from 'store/cardsSlice';
+import { deleteList } from 'store/boardSlice';
+import { addCard, changeListTitle } from 'store/listsSlice';
 
 import styles from './List.module.css';
-import { boardActions } from 'store/boardSlice';
 
 const List = (props) => {
   const list = useSelector((state) => state.listsById[props.listId]);
@@ -30,8 +29,7 @@ const List = (props) => {
 
     const cardId = shortid.generate();
 
-    dispatch(listsActions.addCard({ cardId, listId }));
-    dispatch(cardsActions.addCard({ cardId, listId, cardText }));
+    dispatch(addCard({ cardId, listId, cardText }));
   };
 
   const toggleEditingTitle = () => {
@@ -47,16 +45,14 @@ const List = (props) => {
 
     toggleEditingTitle();
 
-    dispatch(listsActions.changeListTitle({ listId, listTitle: title }));
+    dispatch(changeListTitle({ listId, listTitle: title }));
   };
 
-  const deleteList = async () => {
+  const handleDeleteList = async () => {
     const { listId } = props;
     console.log(listId);
 
-    dispatch(boardActions.deleteList({ listId }));
-    dispatch(listsActions.deleteList({ listId }));
-    dispatch(cardsActions.deleteList({ listId, cards: list.cards }));
+    dispatch(deleteList({ listId, cards: list.cards }));
   };
 
   return (
@@ -75,7 +71,7 @@ const List = (props) => {
               handleChangeTitle={handleChangeTitle}
               saveList={editListTitle}
               onClickOutside={editListTitle}
-              deleteList={deleteList}
+              deleteList={handleDeleteList}
             />
           ) : (
             <div className={styles.title} onClick={toggleEditingTitle}>

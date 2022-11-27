@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { boardActions } from 'store/boardSlice';
-import { listsActions } from 'store/listsSlice';
+import { moveList } from 'store/boardSlice';
+import { moveCard } from 'store/listsSlice';
 
 import List from 'components/List';
 import AddList from 'components/AddList';
@@ -26,7 +26,7 @@ const Board = (props) => {
       // Prevent update if nothing got changed
       if (source.index !== destination.index) {
         dispatch(
-          boardActions.moveList({
+          moveList({
             oldListIndex: source.index,
             newListIndex: destination.index,
           })
@@ -40,7 +40,7 @@ const Board = (props) => {
       source.droppableId !== destination.droppableId
     ) {
       dispatch(
-        listsActions.moveCard({
+        moveCard({
           oldCardIndex: source.index,
           newCardIndex: destination.index,
           sourceListId: source.droppableId,

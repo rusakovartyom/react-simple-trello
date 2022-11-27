@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { boardActions } from 'store/boardSlice';
-import { listsActions } from 'store/listsSlice';
+import { addList } from 'store/boardSlice';
 import shortid from 'shortid';
 
 import EditButtons from 'components/EditButtons';
@@ -23,8 +22,7 @@ const AddList = (props) => {
 
     const listId = shortid.generate();
 
-    dispatch(boardActions.addList({ listId }));
-    dispatch(listsActions.addList({ listId, listTitle: title }));
+    dispatch(addList({ listId, listTitle: title }));
   };
 
   // Custom hook for detecting click outside of the element
