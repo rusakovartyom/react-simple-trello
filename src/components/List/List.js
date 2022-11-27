@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -14,9 +14,13 @@ import styles from './List.module.css';
 const List = (props) => {
   const list = useSelector((state) => state.listsById[props.listId]);
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(list.title);
+  const [title, setTitle] = useState('');
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
+
+  useEffect(() => {
+    setTitle(list.title);
+  }, [list.title]);
 
   const toggleAddingCard = () => {
     setAddingCard(!addingCard);
