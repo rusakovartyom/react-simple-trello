@@ -14,3 +14,34 @@
 .card:hover {
   background: #f5f6f7;
 }
+
+.cardIcons {
+  display: none;
+}
+
+.card:hover .cardIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.cardIcon {
+  align-items: center;
+  background: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.cardIcon:hover {
+  background: rgba(220, 220, 220, 1);
+}

@@ -7,32 +7,20 @@ import { Draggable } from 'react-beautiful-dnd';
 import Card from 'components/Card';
 import CardEditor from 'components/CardEditor';
 
-import styles from './TaskCard.module.css';
-
 const TaskCard = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const card = useSelector((state) => state.cardsById[props.cardId]);
   const dispatch = useDispatch();
 
-  const startHover = () => {
-    setIsHovered(true);
-  };
-  const endHover = () => {
-    setIsHovered(false);
-  };
-
-  const startEditing = () => {
-    setIsHovered(false);
+  const handleStartEditing = () => {
     setIsEditing(true);
   };
-  const endEditing = () => {
-    setIsHovered(false);
+  const handleEndEditing = () => {
     setIsEditing(false);
   };
 
   const handleEditCard = async (text) => {
-    endEditing();
+    handleEndEditing();
 
     dispatch(cardsActions.changeCardText({ cardId: card._id, cardText: text }));
   };
@@ -48,36 +36,24 @@ const TaskCard = (props) => {
       <Draggable draggableId={card._id} index={props.index}>
         {(provided, _snapshot) => (
           <Card
-            onMouseEnter={startHover}
-            onMouseLeave={endHover}
             innerRef={provided.innerRef}
             provided={provided}
+            onClick={handleStartEditing}
           >
-            {isHovered ? (
-              <div className={styles.cardIcons}>
-                <div
-                  className={styles.cardIcon}
-                  onClick={startEditing}
-                  title="Edit"
-                >
-                  <ion-icon name="pencil-sharp" />
-                </div>
-              </div>
-            ) : null}
             {card.text}
           </Card>
         )}
       </Draggable>
     );
-  } else {
-    return (
-      <CardEditor
-        text={card.text}
-        onSave={handleEditCard}
-        onDelete={handleDeleteCard}
-        onCancel={endEditing}
-      />
-    );
   }
+
+  return (
+    <CardEditor
+      text={card.text}
+      onSave={handleEditCard}
+      onDelete={handleDeleteCard}
+      onCancel={handleEndEditing}
+    />
+  );
 };
 export default TaskCard;

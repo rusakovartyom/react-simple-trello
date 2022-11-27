@@ -1,16 +1,19 @@
 import styles from './Card.module.css';
 
-const Card = (props) => {
+const Card = ({ provided, innerRef, children, onClick }) => {
   return (
     <div
-      {...props.provided.draggableProps}
-      {...props.provided.dragHandleProps}
-      ref={props.innerRef}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={innerRef}
       className={styles.card}
     >
-      {props.children}
+      <span>{children}</span>
+      <div className={styles.cardIcons}>
+        <button className={styles.cardIcon} onClick={onClick} title="Edit">
+          <ion-icon name="pencil-sharp" />
+        </button>
+      </div>
     </div>
   );
 };
