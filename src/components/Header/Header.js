@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-const Header = (props) => {
-  return <header className={styles.header}>{props.children}</header>;
+const Header = ({ children }) => {
+  return <header className={styles.header}>{children}</header>;
 };
 export default Header;

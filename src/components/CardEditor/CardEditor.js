@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import EditButtons from 'components/EditButtons';
 
 import styles from './styles.module.css';
 
-const CardEditor = (props) => {
-  const [text, setText] = useState(props.text || '');
+const CardEditor = ({ cardText, adding, onDelete, onSave, onCancel }) => {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(cardText);
+  }, [cardText]);
 
   const handleChangeText = (event) => {
     setText(event.target.value);
@@ -15,7 +19,7 @@ const CardEditor = (props) => {
   const onEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      props.onSave(text);
+      onSave(text);
     }
   };
 
@@ -32,10 +36,10 @@ const CardEditor = (props) => {
         />
       </div>
       <EditButtons
-        handleSave={() => props.onSave(text)}
-        saveLabel={props.adding ? 'Add card' : 'Save'}
-        handleDelete={props.onDelete}
-        handleCancel={props.onCancel}
+        handleSave={() => onSave(text)}
+        saveLabel={adding ? 'Add card' : 'Save'}
+        handleDelete={onDelete}
+        handleCancel={onCancel}
       />
     </>
   );

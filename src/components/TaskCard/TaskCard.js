@@ -7,9 +7,9 @@ import { Draggable } from 'react-beautiful-dnd';
 import Card from 'components/Card';
 import CardEditor from 'components/CardEditor';
 
-const TaskCard = (props) => {
+const TaskCard = ({ listId, index, cardId }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const card = useSelector((state) => state.cardsById[props.cardId]);
+  const card = useSelector((state) => state.cardsById[cardId]);
   const dispatch = useDispatch();
 
   const handleStartEditing = () => {
@@ -26,14 +26,12 @@ const TaskCard = (props) => {
   };
 
   const handleDeleteCard = async () => {
-    const { listId } = props;
-
     dispatch(deleteCard({ cardId: card._id, listId }));
   };
 
   if (!isEditing) {
     return (
-      <Draggable draggableId={card._id} index={props.index}>
+      <Draggable draggableId={card._id} index={index}>
         {(provided, _snapshot) => (
           <Card
             text={card.text}
@@ -48,7 +46,7 @@ const TaskCard = (props) => {
 
   return (
     <CardEditor
-      text={card.text}
+      cardText={card.text}
       onSave={handleEditCard}
       onDelete={handleDeleteCard}
       onCancel={handleEndEditing}

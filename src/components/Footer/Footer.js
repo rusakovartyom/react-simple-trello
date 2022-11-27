@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p className={styles.text}>

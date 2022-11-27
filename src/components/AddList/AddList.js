@@ -8,7 +8,7 @@ import ListEditor from 'components/ListEditor';
 
 import styles from './styles.module.css';
 
-const AddList = (props) => {
+const AddList = ({ toggleAddingList }) => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
   const ref = useRef();
@@ -18,7 +18,7 @@ const AddList = (props) => {
   };
 
   const createList = async () => {
-    props.toggleAddingList();
+    toggleAddingList();
 
     const listId = shortid.generate();
 
@@ -47,19 +47,19 @@ const AddList = (props) => {
   };
 
   // Calling hook
-  useOnClickOutside(ref, () => props.toggleAddingList(false));
+  useOnClickOutside(ref, () => toggleAddingList(false));
 
   return (
     <div className={styles.addList} ref={ref}>
       <ListEditor
         title={title}
         handleChangeTitle={handleChangeTitle}
-        onClickOutside={props.toggleAddingList}
+        onClickOutside={toggleAddingList}
         saveList={createList}
       />
       <EditButtons
         handleSave={createList}
-        handleCancel={props.toggleAddingList}
+        handleCancel={toggleAddingList}
         saveLabel="Add list"
       />
     </div>

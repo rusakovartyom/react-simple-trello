@@ -11,8 +11,8 @@ import { addCard, changeListTitle } from 'store/listsSlice';
 
 import styles from './styles.module.css';
 
-const List = (props) => {
-  const list = useSelector((state) => state.listsById[props.listId]);
+const List = ({ listId, index }) => {
+  const list = useSelector((state) => state.listsById[listId]);
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [isEditingTitle, setIsEditingTitle] = useState(false);
@@ -27,8 +27,6 @@ const List = (props) => {
   };
 
   const handleAddCard = async (cardText) => {
-    const { listId } = props;
-
     toggleAddingCard();
 
     const cardId = shortid.generate();
@@ -45,22 +43,19 @@ const List = (props) => {
   };
 
   const editListTitle = async () => {
-    const { listId } = props;
-
     toggleEditingTitle();
 
     dispatch(changeListTitle({ listId, listTitle: title }));
   };
 
   const handleDeleteList = async () => {
-    const { listId } = props;
     console.log(listId);
 
     dispatch(deleteList({ listId, cards: list.cards }));
   };
 
   return (
-    <Draggable draggableId={props.listId} index={props.index}>
+    <Draggable draggableId={listId} index={index}>
       {(provided, _snapshot) => (
         <div
           className={styles.list}

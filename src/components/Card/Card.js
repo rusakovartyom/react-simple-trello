@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-const Card = ({ provided, innerRef, children, onClick, text }) => {
+const Card = ({ provided, innerRef, onClick, text }) => {
   return (
     <div
       {...provided.draggableProps}
