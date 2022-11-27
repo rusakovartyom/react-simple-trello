@@ -66,12 +66,10 @@ const Board = (props) => {
               {isAddingList ? (
                 <AddList toggleAddingList={toggleAddingList} />
               ) : (
-                <div
-                  className={styles.addListButton}
-                  onClick={toggleAddingList}
-                >
-                  <ion-icon name="add" /> Add a list
-                </div>
+                <button className={styles.button} onClick={toggleAddingList}>
+                  <ion-icon name="add" />
+                  <span>Add a list</span>
+                </button>
               )}
             </div>
           </div>

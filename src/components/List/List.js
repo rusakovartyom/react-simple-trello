@@ -103,7 +103,7 @@ const List = (props) => {
                     onClick={toggleAddingCard}
                   >
                     <ion-icon name="add" />
-                    Add a card
+                    <span>Add a card</span>
                   </button>
                 )}
               </div>

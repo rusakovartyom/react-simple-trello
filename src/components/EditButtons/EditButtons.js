@@ -3,23 +3,23 @@ import styles from './EditButtons.module.css';
 const EditButtons = (props) => {
   return (
     <div className={styles.editButtons}>
-      <div
+      <button
         className={`${styles.editButton} ${styles.editButtonSave}`}
         onClick={props.handleSave}
       >
-        {props.saveLabel}
-      </div>
+        <span>{props.saveLabel}</span>
+      </button>
       {props.handleDelete && (
-        <div
+        <button
           className={`${styles.editButton} ${styles.editButtonDelete}`}
           onClick={props.handleDelete}
         >
-          Delete
-        </div>
+          <span>Delete</span>
+        </button>
       )}
-      <div className={styles.editButtonCancel} onClick={props.handleCancel}>
+      <button className={styles.editButtonCancel} onClick={props.handleCancel}>
         <ion-icon name="close" />
-      </div>
+      </button>
     </div>
   );
 };
