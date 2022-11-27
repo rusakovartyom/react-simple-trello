@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { moveList } from 'store/boardSlice';
 import { moveCard } from 'store/listsSlice';
+import { column } from 'const';
 
 import List from 'components/List';
 import AddList from 'components/AddList';
@@ -22,7 +23,7 @@ const Board = (props) => {
     // Return list if it was dropped outside of allowed zones
     if (!destination) return;
     // Move list
-    if (type === 'COLUMN') {
+    if (type === column) {
       // Prevent update if nothing got changed
       if (source.index !== destination.index) {
         dispatch(
@@ -52,7 +53,7 @@ const Board = (props) => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <Droppable droppableId="board" direction="horizontal" type="COLUMN">
+      <Droppable droppableId="board" direction="horizontal" type={column}>
         {(provided, _snapshot) => (
           <div className={styles.board} ref={provided.innerRef}>
             {board.lists.map((listId, index) => (
