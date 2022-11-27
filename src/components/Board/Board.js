@@ -10,7 +10,7 @@ import AddList from 'components/AddList';
 
 import styles from './styles.module.css';
 
-const Board = (props) => {
+const Board = () => {
   const [isAddingList, setIsAddingList] = useState(false);
   const board = useSelector((state) => state.board);
   const dispatch = useDispatch();
