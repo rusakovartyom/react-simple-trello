@@ -20,11 +20,11 @@ const CardEditor = (props) => {
   };
 
   return (
-    <div className={styles.editCard}>
-      <div className={styles.editCardWrapper}>
+    <>
+      <div className={styles.cardEditor}>
         <TextareaAutosize
           autoFocus
-          className={styles.editCardTextarea}
+          className={styles.textarea}
           placeholder="Enter the text for this card..."
           value={text}
           onChange={handleChangeText}
@@ -37,7 +37,7 @@ const CardEditor = (props) => {
         handleDelete={props.onDelete}
         handleCancel={props.onCancel}
       />
-    </div>
+    </>
   );
 };
 export default CardEditor;
