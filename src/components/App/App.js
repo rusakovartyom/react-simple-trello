@@ -9,8 +9,8 @@ const App = () => {
     <div className={styles.app}>
       <div className={styles.top}>
         <Header>
-          <h1>Trello Clone</h1>
-          <h2>(made with React and Redux)</h2>
+          <h1 className={styles.heading}>Trello Clone</h1>
+          <h2 className={styles.heading}>(made with React and Redux)</h2>
         </Header>
         <Board />
       </div>
