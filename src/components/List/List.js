@@ -1,37 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-import TaskCard from '../TaskCard';
-import CardEditor from '../CardEditor';
-import ListEditor from '../ListEditor';
+import TaskCard from 'components/TaskCard';
+import CardEditor from 'components/CardEditor';
+import ListEditor from 'components/ListEditor';
 import shortid from 'shortid';
-import { listsActions } from '../../store/listsSlice';
-import { cardsActions } from '../../store/cardsSlice';
+import { deleteList } from 'store/boardSlice';
+import { addCard, changeListTitle } from 'store/listsSlice';
 
-import styles from './List.module.css';
-import { boardActions } from '../../store/boardSlice';
+import styles from './styles.module.css';
 
-const List = (props) => {
-  const list = useSelector((state) => state.listsById[props.listId]);
+const List = ({ listId, index }) => {
+  const list = useSelector((state) => state.listsById[listId]);
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(list.title);
+  const [title, setTitle] = useState('');
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
+
+  useEffect(() => {
+    setTitle(list.title);
+  }, [list.title]);
 
   const toggleAddingCard = () => {
     setAddingCard(!addingCard);
   };
 
   const handleAddCard = async (cardText) => {
-    const { listId } = props;
-
     toggleAddingCard();
 
     const cardId = shortid.generate();
 
-    dispatch(listsActions.addCard({ cardId, listId }));
-    dispatch(cardsActions.addCard({ cardId, listId, cardText }));
+    dispatch(addCard({ cardId, listId, cardText }));
   };
 
   const toggleEditingTitle = () => {
@@ -43,24 +43,19 @@ const List = (props) => {
   };
 
   const editListTitle = async () => {
-    const { listId } = props;
-
     toggleEditingTitle();
 
-    dispatch(listsActions.changeListTitle({ listId, listTitle: title }));
+    dispatch(changeListTitle({ listId, listTitle: title }));
   };
 
-  const deleteList = async () => {
-    const { listId } = props;
+  const handleDeleteList = async () => {
     console.log(listId);
 
-    dispatch(boardActions.deleteList({ listId }));
-    dispatch(listsActions.deleteList({ listId }));
-    dispatch(cardsActions.deleteList({ listId, cards: list.cards }));
+    dispatch(deleteList({ listId, cards: list.cards }));
   };
 
   return (
-    <Draggable draggableId={props.listId} index={props.index}>
+    <Draggable draggableId={listId} index={index}>
       {(provided, _snapshot) => (
         <div
           className={styles.list}
@@ -75,7 +70,7 @@ const List = (props) => {
               handleChangeTitle={handleChangeTitle}
               saveList={editListTitle}
               onClickOutside={editListTitle}
-              deleteList={deleteList}
+              deleteList={handleDeleteList}
             />
           ) : (
             <div className={styles.title} onClick={toggleEditingTitle}>
@@ -107,7 +102,7 @@ const List = (props) => {
                     onClick={toggleAddingCard}
                   >
                     <ion-icon name="add" />
-                    Add a card
+                    <span>Add a card</span>
                   </button>
                 )}
               </div>

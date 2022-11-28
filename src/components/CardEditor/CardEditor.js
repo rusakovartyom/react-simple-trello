@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import EditButtons from '../EditButtons';
+import EditButtons from 'components/EditButtons';
 
-import styles from './CardEditor.module.css';
+import styles from './styles.module.css';
 
-const CardEditor = (props) => {
-  const [text, setText] = useState(props.text || '');
+const CardEditor = ({ cardText, adding, onDelete, onSave, onCancel }) => {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(cardText);
+  }, [cardText]);
 
   const handleChangeText = (event) => {
     setText(event.target.value);
@@ -15,16 +19,16 @@ const CardEditor = (props) => {
   const onEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      props.onSave(text);
+      onSave(text);
     }
   };
 
   return (
-    <div className={styles.editCard}>
-      <div className={styles.editCardWrapper}>
+    <>
+      <div className={styles.cardEditor}>
         <TextareaAutosize
           autoFocus
-          className={styles.editCardTextarea}
+          className={styles.textarea}
           placeholder="Enter the text for this card..."
           value={text}
           onChange={handleChangeText}
@@ -32,12 +36,12 @@ const CardEditor = (props) => {
         />
       </div>
       <EditButtons
-        handleSave={() => props.onSave(text)}
-        saveLabel={props.adding ? 'Add card' : 'Save'}
-        handleDelete={props.onDelete}
-        handleCancel={props.onCancel}
+        handleSave={() => onSave(text)}
+        saveLabel={adding ? 'Add card' : 'Save'}
+        handleDelete={onDelete}
+        handleCancel={onCancel}
       />
-    </div>
+    </>
   );
 };
 export default CardEditor;

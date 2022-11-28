@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { boardActions } from '../../store/boardSlice';
-import { listsActions } from '../../store/listsSlice';
+import { moveList } from 'store/boardSlice';
+import { moveCard } from 'store/listsSlice';
+import { column } from 'const';
 
-import List from '../List';
-import AddList from '../AddList';
+import List from 'components/List';
+import AddList from 'components/AddList';
 
-import styles from './Board.module.css';
+import styles from './styles.module.css';
 
-const Board = (props) => {
+const Board = () => {
   const [isAddingList, setIsAddingList] = useState(false);
   const board = useSelector((state) => state.board);
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ const Board = (props) => {
     // Return list if it was dropped outside of allowed zones
     if (!destination) return;
     // Move list
-    if (type === 'COLUMN') {
+    if (type === column) {
       // Prevent update if nothing got changed
       if (source.index !== destination.index) {
         dispatch(
-          boardActions.moveList({
+          moveList({
             oldListIndex: source.index,
             newListIndex: destination.index,
           })
@@ -40,7 +41,7 @@ const Board = (props) => {
       source.droppableId !== destination.droppableId
     ) {
       dispatch(
-        listsActions.moveCard({
+        moveCard({
           oldCardIndex: source.index,
           newCardIndex: destination.index,
           sourceListId: source.droppableId,
@@ -52,7 +53,7 @@ const Board = (props) => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <Droppable droppableId="board" direction="horizontal" type="COLUMN">
+      <Droppable droppableId="board" direction="horizontal" type={column}>
         {(provided, _snapshot) => (
           <div className={styles.board} ref={provided.innerRef}>
             {board.lists.map((listId, index) => (
@@ -65,12 +66,10 @@ const Board = (props) => {
               {isAddingList ? (
                 <AddList toggleAddingList={toggleAddingList} />
               ) : (
-                <div
-                  className={styles.addListButton}
-                  onClick={toggleAddingList}
-                >
-                  <ion-icon name="add" /> Add a list
-                </div>
+                <button className={styles.button} onClick={toggleAddingList}>
+                  <ion-icon name="add" />
+                  <span>Add a list</span>
+                </button>
               )}
             </div>
           </div>

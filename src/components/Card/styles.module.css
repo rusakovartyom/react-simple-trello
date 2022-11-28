@@ -1,4 +1,25 @@
+.card {
+  background: white;
+  border: 2px solid rgba(0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 5px;
+  min-height: 18px;
+  overflow-wrap: break-word;
+  padding: 10px;
+  position: relative;
+}
+
+.card:hover {
+  background: #f5f6f7;
+}
+
 .cardIcons {
+  display: none;
+}
+
+.card:hover .cardIcons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -10,6 +31,7 @@
 .cardIcon {
   align-items: center;
   background: #f5f6f7;
+  border: none;
   border-radius: 5px;
   color: #000;
   cursor: pointer;

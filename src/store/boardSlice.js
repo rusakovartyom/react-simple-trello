@@ -28,6 +28,6 @@ const boardSlice = createSlice({
   },
 });
 
-export const boardActions = boardSlice.actions;
+export const { addList, moveList, deleteList } = boardSlice.actions;
 
 export default boardSlice;

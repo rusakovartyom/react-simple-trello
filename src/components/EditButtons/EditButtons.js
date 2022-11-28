@@ -1,25 +1,25 @@
-import styles from './EditButtons.module.css';
+import styles from './styles.module.css';
 
-const EditButtons = (props) => {
+const EditButtons = ({ saveLabel, handleSave, handleDelete, handleCancel }) => {
   return (
     <div className={styles.editButtons}>
-      <div
+      <button
         className={`${styles.editButton} ${styles.editButtonSave}`}
-        onClick={props.handleSave}
+        onClick={handleSave}
       >
-        {props.saveLabel}
-      </div>
-      {props.handleDelete && (
-        <div
+        <span>{saveLabel}</span>
+      </button>
+      {handleDelete && (
+        <button
           className={`${styles.editButton} ${styles.editButtonDelete}`}
-          onClick={props.handleDelete}
+          onClick={handleDelete}
         >
-          Delete
-        </div>
+          <span>Delete</span>
+        </button>
       )}
-      <div className={styles.editButtonCancel} onClick={props.handleCancel}>
+      <button className={styles.editButtonCancel} onClick={handleCancel}>
         <ion-icon name="close" />
-      </div>
+      </button>
     </div>
   );
 };

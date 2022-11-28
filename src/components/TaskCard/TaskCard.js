@@ -1,84 +1,56 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardsActions } from '../../store/cardsSlice';
-import { listsActions } from '../../store/listsSlice';
+import { cardsActions } from 'store/cardsSlice';
+import { deleteCard } from 'store/listsSlice';
 import { Draggable } from 'react-beautiful-dnd';
 
-import Card from '../Card';
-import CardEditor from '../CardEditor';
+import Card from 'components/Card';
+import CardEditor from 'components/CardEditor';
 
-import styles from './TaskCard.module.css';
-
-const TaskCard = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
+const TaskCard = ({ listId, index, cardId }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const card = useSelector((state) => state.cardsById[props.cardId]);
+  const card = useSelector((state) => state.cardsById[cardId]);
   const dispatch = useDispatch();
 
-  const startHover = () => {
-    setIsHovered(true);
-  };
-  const endHover = () => {
-    setIsHovered(false);
-  };
-
-  const startEditing = () => {
-    setIsHovered(false);
+  const handleStartEditing = () => {
     setIsEditing(true);
   };
-  const endEditing = () => {
-    setIsHovered(false);
+  const handleEndEditing = () => {
     setIsEditing(false);
   };
 
   const handleEditCard = async (text) => {
-    endEditing();
+    handleEndEditing();
 
     dispatch(cardsActions.changeCardText({ cardId: card._id, cardText: text }));
   };
 
   const handleDeleteCard = async () => {
-    const { listId } = props;
-
-    dispatch(cardsActions.deleteCard({ cardId: card._id, listId }));
-    dispatch(listsActions.deleteCard({ cardId: card._id, listId }));
+    dispatch(deleteCard({ cardId: card._id, listId }));
   };
 
   if (!isEditing) {
     return (
-      <Draggable draggableId={card._id} index={props.index}>
+      <Draggable draggableId={card._id} index={index}>
         {(provided, _snapshot) => (
           <Card
-            onMouseEnter={startHover}
-            onMouseLeave={endHover}
+            text={card.text}
             innerRef={provided.innerRef}
             provided={provided}
-          >
-            {isHovered ? (
-              <div className={styles.cardIcons}>
-                <div
-                  className={styles.cardIcon}
-                  onClick={startEditing}
-                  title="Edit"
-                >
-                  <ion-icon name="pencil-sharp" />
-                </div>
-              </div>
-            ) : null}
-            {card.text}
-          </Card>
+            onClick={handleStartEditing}
+          />
         )}
       </Draggable>
     );
-  } else {
-    return (
-      <CardEditor
-        text={card.text}
-        onSave={handleEditCard}
-        onDelete={handleDeleteCard}
-        onCancel={endEditing}
-      />
-    );
   }
+
+  return (
+    <CardEditor
+      cardText={card.text}
+      onSave={handleEditCard}
+      onDelete={handleDeleteCard}
+      onCancel={handleEndEditing}
+    />
+  );
 };
 export default TaskCard;

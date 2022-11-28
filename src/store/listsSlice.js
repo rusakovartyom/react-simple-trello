@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addList, deleteList } from './boardSlice';
 
 const initialListsState = {};
 
@@ -6,24 +7,12 @@ const listsSlice = createSlice({
   name: 'listsById',
   initialState: initialListsState,
   reducers: {
-    addList: (state, action) => {
-      const { listId, listTitle } = action.payload;
-      return {
-        ...state,
-        [listId]: { _id: listId, title: listTitle, cards: [] },
-      };
-    },
     changeListTitle: (state, action) => {
       const { listId, listTitle } = action.payload;
       return {
         ...state,
         [listId]: { ...state[listId], title: listTitle },
       };
-    },
-    deleteList: (state, action) => {
-      const { listId } = action.payload;
-      const { [listId]: deletedList, ...restOfLists } = state;
-      return restOfLists;
     },
     addCard: (state, action) => {
       const { listId, cardId } = action.payload;
@@ -68,8 +57,25 @@ const listsSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addList, (state, action) => {
+        const { listId, listTitle } = action.payload;
+        console.log('Extra reducer works!');
+        return {
+          ...state,
+          [listId]: { _id: listId, title: listTitle, cards: [] },
+        };
+      })
+      .addCase(deleteList, (state, action) => {
+        const { listId } = action.payload;
+        const { [listId]: deletedList, ...restOfLists } = state;
+        return restOfLists;
+      });
+  },
 });
 
-export const listsActions = listsSlice.actions;
+export const { changeListTitle, addCard, moveCard, deleteCard } =
+  listsSlice.actions;
 
 export default listsSlice;

@@ -1,7 +1,6 @@
 import shortid from 'shortid';
-import { boardActions } from './boardSlice';
-import { listsActions } from './listsSlice';
-import { cardsActions } from './cardsSlice';
+import { addList } from './boardSlice';
+import { addCard } from './listsSlice';
 
 const dummyData = (store) => {
   const dummyLists = {
@@ -12,18 +11,11 @@ const dummyData = (store) => {
   const dispatchDummyData = (lists) => {
     for (const list in lists) {
       const listId = shortid.generate();
-      store.dispatch(boardActions.addList({ listId: listId }));
-      store.dispatch(listsActions.addList({ listId: listId, listTitle: list }));
+      store.dispatch(addList({ listId: listId, listTitle: list }));
       for (const card of lists[list]) {
         const cardId = shortid.generate();
         store.dispatch(
-          listsActions.addCard({
-            listId: listId,
-            cardId: cardId,
-          })
-        );
-        store.dispatch(
-          cardsActions.addCard({
+          addCard({
             listId: listId,
             cardId: cardId,
             cardText: card,

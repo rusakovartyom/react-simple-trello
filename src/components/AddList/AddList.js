@@ -1,15 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { boardActions } from '../../store/boardSlice';
-import { listsActions } from '../../store/listsSlice';
+import { addList } from 'store/boardSlice';
 import shortid from 'shortid';
 
-import EditButtons from '../EditButtons/EditButtons';
-import ListEditor from '../ListEditor/ListEditor';
+import EditButtons from 'components/EditButtons';
+import ListEditor from 'components/ListEditor';
 
-import styles from './AddList.module.css';
+import styles from './styles.module.css';
 
-const AddList = (props) => {
+const AddList = ({ toggleAddingList }) => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
   const ref = useRef();
@@ -19,12 +18,11 @@ const AddList = (props) => {
   };
 
   const createList = async () => {
-    props.toggleAddingList();
+    toggleAddingList();
 
     const listId = shortid.generate();
 
-    dispatch(boardActions.addList({ listId }));
-    dispatch(listsActions.addList({ listId, listTitle: title }));
+    dispatch(addList({ listId, listTitle: title }));
   };
 
   // Custom hook for detecting click outside of the element
@@ -49,19 +47,19 @@ const AddList = (props) => {
   };
 
   // Calling hook
-  useOnClickOutside(ref, () => props.toggleAddingList(false));
+  useOnClickOutside(ref, () => toggleAddingList(false));
 
   return (
     <div className={styles.addList} ref={ref}>
       <ListEditor
         title={title}
         handleChangeTitle={handleChangeTitle}
-        onClickOutside={props.toggleAddingList}
+        onClickOutside={toggleAddingList}
         saveList={createList}
       />
       <EditButtons
         handleSave={createList}
-        handleCancel={props.toggleAddingList}
+        handleCancel={toggleAddingList}
         saveLabel="Add list"
       />
     </div>

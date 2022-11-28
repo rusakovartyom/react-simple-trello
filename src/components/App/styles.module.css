@@ -1,0 +1,16 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(243, 176, 104);
+  height: 100vh;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.board {
+  flex-grow: 1;
+}

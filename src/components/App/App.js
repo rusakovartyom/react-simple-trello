@@ -1,16 +1,20 @@
-import Header from '../Header';
-import Board from '../Board';
+import Header from 'components/Header';
+import Board from 'components/Board';
+import Footer from 'components/Footer';
 
-import styles from './App.module.css';
+import styles from './styles.module.css';
 
 const App = () => {
   return (
     <div className={styles.app}>
-      <Header>
-        Trello Clone <br />
-        (made with React and Redux)
-      </Header>
-      <Board />
+      <div className={styles.top}>
+        <Header>
+          <h1>Trello Clone</h1>
+          <h2>(made with React and Redux)</h2>
+        </Header>
+        <Board />
+      </div>
+      <Footer />
     </div>
   );
 };
