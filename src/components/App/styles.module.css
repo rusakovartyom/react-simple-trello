@@ -11,6 +11,11 @@
   flex-grow: 1;
 }
 
+.heading {
+  font-size: 1.4rem;
+  margin: 0.9rem 0 0.6rem;
+}
+
 .board {
   flex-grow: 1;
 }
